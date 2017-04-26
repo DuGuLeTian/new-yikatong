@@ -24,6 +24,9 @@ public class Card implements Serializable {
     @Column(name = "jhi_number")
     private Long number;
 
+    @Column(name = "name")
+    private String name;
+
     public Long getId() {
         return id;
     }
@@ -43,6 +46,19 @@ public class Card implements Serializable {
 
     public void setNumber(Long number) {
         this.number = number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Card name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -70,12 +86,13 @@ public class Card implements Serializable {
         return "Card{" +
             "id=" + id +
             ", number='" + number + "'" +
+            ", name='" + name + "'" +
             '}';
     }
-
     public static Card create(Long number) {
         Card n = new Card();
         n.setNumber(number);
+        n.setName(null);
         return n;
     }
 }

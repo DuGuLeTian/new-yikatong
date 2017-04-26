@@ -5,6 +5,10 @@
         {
             "fieldName": "number",
             "fieldType": "Long"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170426050757",

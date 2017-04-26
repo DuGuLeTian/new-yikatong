@@ -41,6 +41,9 @@ public class CardResourceIntTest {
     private static final Long DEFAULT_NUMBER = 1L;
     private static final Long UPDATED_NUMBER = 2L;
 
+    private static final String DEFAULT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_NAME = "BBBBBBBBBB";
+
     @Autowired
     private CardRepository cardRepository;
 
@@ -81,7 +84,8 @@ public class CardResourceIntTest {
      */
     public static Card createEntity(EntityManager em) {
         Card card = new Card()
-            .number(DEFAULT_NUMBER);
+            .number(DEFAULT_NUMBER)
+            .name(DEFAULT_NAME);
         return card;
     }
 
@@ -106,6 +110,7 @@ public class CardResourceIntTest {
         assertThat(cardList).hasSize(databaseSizeBeforeCreate + 1);
         Card testCard = cardList.get(cardList.size() - 1);
         assertThat(testCard.getNumber()).isEqualTo(DEFAULT_NUMBER);
+        assertThat(testCard.getName()).isEqualTo(DEFAULT_NAME);
     }
 
     @Test
@@ -138,7 +143,8 @@ public class CardResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(card.getId().intValue())))
-            .andExpect(jsonPath("$.[*].number").value(hasItem(DEFAULT_NUMBER.intValue())));
+            .andExpect(jsonPath("$.[*].number").value(hasItem(DEFAULT_NUMBER.intValue())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
     }
 
     @Test
@@ -152,7 +158,8 @@ public class CardResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(card.getId().intValue()))
-            .andExpect(jsonPath("$.number").value(DEFAULT_NUMBER.intValue()));
+            .andExpect(jsonPath("$.number").value(DEFAULT_NUMBER.intValue()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
     }
 
     @Test
@@ -174,7 +181,8 @@ public class CardResourceIntTest {
         // Update the card
         Card updatedCard = cardRepository.findOne(card.getId());
         updatedCard
-            .number(UPDATED_NUMBER);
+            .number(UPDATED_NUMBER)
+            .name(UPDATED_NAME);
 
         restCardMockMvc.perform(put("/api/cards")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -186,6 +194,7 @@ public class CardResourceIntTest {
         assertThat(cardList).hasSize(databaseSizeBeforeUpdate);
         Card testCard = cardList.get(cardList.size() - 1);
         assertThat(testCard.getNumber()).isEqualTo(UPDATED_NUMBER);
+        assertThat(testCard.getName()).isEqualTo(UPDATED_NAME);
     }
 
     @Test
