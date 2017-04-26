@@ -1,0 +1,15 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "number",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20170426050757",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "card",
+    "pagination": "no"
+}
