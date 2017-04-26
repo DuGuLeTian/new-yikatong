@@ -72,4 +72,10 @@ public class Card implements Serializable {
             ", number='" + number + "'" +
             '}';
     }
+
+    public static Card create(Long number) {
+        Card n = new Card();
+        n.setNumber(number);
+        return n;
+    }
 }

@@ -2,8 +2,8 @@ package com.liutianhong.yikatong.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 
-import com.liutianhong.yikatong.domain.User;
-import com.liutianhong.yikatong.repository.UserRepository;
+import com.liutianhong.yikatong.domain.*;
+import com.liutianhong.yikatong.repository.*;
 import com.liutianhong.yikatong.security.SecurityUtils;
 import com.liutianhong.yikatong.service.MailService;
 import com.liutianhong.yikatong.service.UserService;
@@ -40,12 +40,15 @@ public class AccountResource {
 
     private final MailService mailService;
 
+    private final CardRepository cardRepository;
+
     public AccountResource(UserRepository userRepository, UserService userService,
-            MailService mailService) {
+                           MailService mailService, CardRepository cardRepository) {
 
         this.userRepository = userRepository;
         this.userService = userService;
         this.mailService = mailService;
+        this.cardRepository = cardRepository;
     }
 
     /**
@@ -55,7 +58,7 @@ public class AccountResource {
      * @return the ResponseEntity with status 201 (Created) if the user is registered or 400 (Bad Request) if the login or email is already in use
      */
     @PostMapping(path = "/register",
-                    produces={MediaType.APPLICATION_JSON_VALUE, MediaType.TEXT_PLAIN_VALUE})
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.TEXT_PLAIN_VALUE})
     @Timed
     public ResponseEntity registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) {
 
@@ -75,7 +78,7 @@ public class AccountResource {
                     mailService.sendActivationEmail(user);
                     return new ResponseEntity<>(HttpStatus.CREATED);
                 })
-        );
+            );
     }
 
     /**
@@ -190,13 +193,21 @@ public class AccountResource {
             return new ResponseEntity<>("Incorrect password", HttpStatus.BAD_REQUEST);
         }
         return userService.completePasswordReset(keyAndPassword.getNewPassword(), keyAndPassword.getKey())
-              .map(user -> new ResponseEntity<String>(HttpStatus.OK))
-              .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+            .map(user -> new ResponseEntity<String>(HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     private boolean checkPasswordLength(String password) {
         return !StringUtils.isEmpty(password) &&
             password.length() >= ManagedUserVM.PASSWORD_MIN_LENGTH &&
             password.length() <= ManagedUserVM.PASSWORD_MAX_LENGTH;
+    }
+
+    @GetMapping("/register/card/{login}")
+    @Timed
+    public ResponseEntity<?> cardToregisterAccount(@PathVariable Long login) {
+        Card c = Card.create(login);
+        log.debug(c.toString());
+        return ResponseEntity.ok(cardRepository.save(c));
     }
 }
