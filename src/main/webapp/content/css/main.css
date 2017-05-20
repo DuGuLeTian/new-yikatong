@@ -4,6 +4,7 @@ body {
     color: #333;
 }
 
+
 /* ==========================================================================
 Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 ========================================================================== */
@@ -96,6 +97,14 @@ Main page styles
     line-height: 1;
     letter-spacing: -1px;
 }
+
+.home-background {
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    /*background: rgba(0,0,0,.5);*/
+}
+
 
 .hipster {
     display: inline-block;

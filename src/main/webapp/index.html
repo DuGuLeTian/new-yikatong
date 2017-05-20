@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>yikatong</title>
+    <title>工大一卡通</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -11,9 +11,15 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+
     <!-- endinject -->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.css" rel="stylesheet" />-->
+    <link href="https://cdn.bootcss.com/angularjs-toaster/2.1.0/toaster.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/angularjs-toaster/2.1.0/toaster.min.css" rel="stylesheet">
+
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
+    <link rel="stylesheet" href="content/css/home/home.css">
     <link rel="stylesheet" href="content/css/main.css">
     <!-- endbuild -->
 </head>
@@ -23,15 +29,9 @@
     <![endif]-->
     <page-ribbon></page-ribbon>
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div class="well" ui-view="content">
-            <!-- Angular views -->
-        </div>
 
-        <div class="footer" ng-cloak>
-            <p data-translate="footer">This is your footer</p>
-        </div>
-    </div>
+    <div ui-view="content" ng-cloak></div>
+
 
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
     <script>
@@ -61,8 +61,15 @@
     <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+
     <!-- endinject -->
     <!-- endbuild -->
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js" ></script>-->
+    <!--<script src="https://code.angularjs.org/1.2.0/angular-animate.min.js" ></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.js"></script>-->
+    <script src="https://cdn.bootcss.com/angularjs-toaster/2.1.0/toaster.js"></script>
+    <script src="https://cdn.bootcss.com/angularjs-toaster/2.1.0/toaster.min.js"></script>
 
     <!-- build:js app/app.js  -->
     <!-- inject:js -->
