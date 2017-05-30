@@ -7,6 +7,10 @@
     z-index: 1000;
 }
 
+.navbar {
+    margin-bottom: 0;
+}
+
 .home-background {
     /*background-image: url(content/images/green_01.jpg);*/
     /*opacity: .5;*/
