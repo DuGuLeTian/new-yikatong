@@ -13,10 +13,10 @@
                     </div>
                     <div>
                         <div class="home-search-input-wrapper">
-                            <input type="text" class="home-search-input" ng-model="vm.cardNumber">
-                            <button class="home-search-button" ng-click="">发现神奇</button>
+                            <input type="text" class="home-search-input" ng-model="vm.pageState">
+                            <button class="home-search-button" ng-click="vm.jumpFromHome(vm.pageState)">发现神奇</button>
                             <div class="existed-theme">
-                                <div class="home-search-tip">博客</div>
+                                <div class="home-search-tip" ng-click="vm.jumpFromHome('blog')">博客</div>
                             </div>
                         </div>
                         <!--<toaster-container></toaster-container>-->
