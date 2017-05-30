@@ -4,10 +4,11 @@
     background-color: #fff;
     border-radius: 0;
     opacity: .9;
+    z-index: 1000;
 }
 
 .home-background {
-    background-image: url(content/images/green_01.jpg);
+    /*background-image: url(content/images/green_01.jpg);*/
     /*opacity: .5;*/
 }
 

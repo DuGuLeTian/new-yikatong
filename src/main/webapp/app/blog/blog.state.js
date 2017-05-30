@@ -8,17 +8,12 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('jhi-metrics', {
-            parent: 'admin',
-            url: '/apphealth',
+            parent: 'app',
             data: {
-                authorities: ['ROLE_ADMIN'],
-                pageTitle: 'Application Metrics'
+                authorities: []
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/admin/metrics/metrics.html',
-                    controller: 'JhiMetricsMonitoringController',
                     controllerAs: 'vm'
                 }
             }
