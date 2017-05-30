@@ -74,8 +74,8 @@ Logo styles
 }
 
 .logo .logo-img {
-    height: 45px;
-    width: 41px;
+    height: 40px;
+    width: 40px;
     display: inline-block;
 }
 
@@ -338,3 +338,12 @@ ui bootstrap tweaks
 
 
 /* jhipster-needle-css-add-main JHipster will add new css style */
+/*---------------------------------------*/
+a {
+    color: #0a0a0a;
+}
+
+a:hover {
+    color: #2a2a2a;
+}
+

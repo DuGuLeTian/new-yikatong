@@ -1,15 +1,38 @@
 /*home.css*/
-
-.navbar-default {
-    background-color: #fff;
-    border-radius: 0;
-    opacity: .9;
-    z-index: 1000;
-}
-
-.navbar {
+.home-navbar {
     margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    line-height: 50px;
+    height: 50px;
+    background-color: #0a0a0a;
 }
+
+.navbar-header a {
+    color: blueviolet;
+    font-family: monospace;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.navbar-header a:hover {
+    color: #9f6be2;
+    font-family: monospace;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.home-navbar-header-logo-text {
+    position: relative;
+    top: 2px;
+}
+
+/*.navbar-default {*/
+    /*background-color: #fff;*/
+    /*border-radius: 0;*/
+    /*opacity: .9;*/
+    /*z-index: 1000;*/
+/*}*/
 
 .home-background {
     /*background-image: url(content/images/green_01.jpg);*/
@@ -60,6 +83,21 @@
     background-color: #c8c8c8;
 }
 
+.existed-theme {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-search-tip {
+    padding: 2px 10px;
+    background-color: rgba(250, 235, 215, .8);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fix-content;
+}
+
+/* background-color: rgba(0,0,0,.8); */
 @media (min-width: 1000px) {
     .home-search-input {
         width: 500px;
