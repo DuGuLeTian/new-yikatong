@@ -11,16 +11,16 @@
                         <h1>欢迎来到独孤乐天的小站</h1>
 
                     </div>
-                    <div>
+                    <form>
                         <div class="home-search-input-wrapper">
                             <input type="text" class="home-search-input" ng-model="vm.pageState">
-                            <button class="home-search-button" ng-click="vm.jumpFromHome(vm.pageState)">发现神奇</button>
+                            <button type="submit" class="home-search-button" ng-click="vm.jumpFromHome(vm.pageState)">发现神奇</button>
                             <div class="existed-theme">
                                 <div class="home-search-tip" ng-click="vm.jumpFromHome('blog')">博客</div>
                             </div>
                         </div>
                         <!--<toaster-container></toaster-container>-->
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
