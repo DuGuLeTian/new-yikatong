@@ -1,0 +1,15 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "duguletian_name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170610150832",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "duguletian",
+    "pagination": "pager"
+}

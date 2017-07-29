@@ -41,6 +41,8 @@ public class CacheConfiguration {
             cm.createCache(com.liutianhong.yikatong.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.liutianhong.yikatong.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.liutianhong.yikatong.domain.Card.class.getName(), jcacheConfiguration);
+            cm.createCache(com.liutianhong.yikatong.domain.Tournament.class.getName(), jcacheConfiguration);
+            cm.createCache(com.liutianhong.yikatong.domain.Duguletian.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
